@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="book.png" > 
-    <title>Database</title>
+    <title> ADVICE </title>
 </head>
 <body>
  
@@ -41,8 +41,8 @@
 
 
 <br>   <div id="findDetails"> 
- <h1> Find by Email</h1>
-      <h4> Email</h4>     
+ <h1> Login by School ID</h1>
+      <h4> School ID</h4>     
 <input id="findEmail" type="text"> <br> <br>
 <button id="find"> FIND </button>
 
@@ -52,19 +52,26 @@
 
     <br> 
     <div id="enterDetails">
-<h1> Enter Details </h1>
+<h1> Enter Info </h1>
    <h4> Email </h4>
 <input id="enterEmail" type="text"> 
 
 <h4> Full Name</h4>
 <input id="enterName" type="text"> 
 
+<h4> School ID</h4>
+<input id="enterID" type="text"> 
+
 <br> 
 <br> 
 
-<button id="insert"> INSERT </button>
-<button id="update"> UPDATE </button>
-<button id="remove"> REMOVE </button>
+<div class="buttons"> 
+
+  <button id="insert"> INSERT </button>
+  <button id="update"> UPDATE </button>
+  <button id="remove"> REMOVE </button>
+
+</div>
 <br> <br> <br>  
 </div>
 
@@ -101,8 +108,10 @@
        
         var enterEmail = document.querySelector("#enterEmail");
         var enterName = document.querySelector("#enterName");
+        var enterID = document.querySelector("#enterID");
         var findEmail = document.querySelector("#findEmail");
         var findName = document.querySelector("#findName");
+        var findID = document.querySelector("#findID");
       
 
         var insertBth = document.querySelector("#insert");
@@ -115,6 +124,7 @@
             set(ref(db, "People/" + enterEmail.value),{
                 Name: enterName.value,
                 Email: enterEmail.value,
+                ID: enterID.value,
             })
             .then(()=>{
                 alert("Data added successfully");
