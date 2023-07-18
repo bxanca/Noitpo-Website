@@ -53,14 +53,13 @@
     <br> 
     <div id="enterDetails">
 <h1> Enter Info </h1>
-   <h4> Email </h4>
+   <h4> School ID </h4>
 <input id="enterEmail" type="text"> 
 
 <h4> Full Name</h4>
 <input id="enterName" type="text"> 
 
-<h4> School ID</h4>
-<input id="enterID" type="text"> 
+ 
 
 <br> 
 <br> 
@@ -72,7 +71,7 @@
   <button id="remove"> REMOVE </button>
 
 </div>
-<br> <br> <br>  
+<br> <br>  
 </div>
 
 <br> <br> <br> <br> <br> 
@@ -108,10 +107,9 @@
        
         var enterEmail = document.querySelector("#enterEmail");
         var enterName = document.querySelector("#enterName");
-        var enterID = document.querySelector("#enterID");
         var findEmail = document.querySelector("#findEmail");
         var findName = document.querySelector("#findName");
-        var findID = document.querySelector("#findID");
+      
       
 
         var insertBth = document.querySelector("#insert");
@@ -124,7 +122,6 @@
             set(ref(db, "People/" + enterEmail.value),{
                 Name: enterName.value,
                 Email: enterEmail.value,
-                ID: enterID.value,
             })
             .then(()=>{
                 alert("Data added successfully");
@@ -195,6 +192,62 @@
 <br> 
 <style>
 
+
+
+#insert 
+{background-color:#4C6F99;
+  border: none;
+  color:#C8C2B3;
+  padding: 4px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-style: solid;
+  border-radius: 16px;
+  border-color: #C8C2B3;
+}
+#remove 
+{background-color:#4C6F99;
+  border: none;
+  color:#C8C2B3;
+  padding: 4px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-style: solid;
+  border-radius: 16px;
+  border-color: #C8C2B3;
+}
+
+#update 
+{background-color:#4C6F99;
+  border: none;
+  color:#C8C2B3;
+  padding: 4px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-style: solid;
+  border-radius: 16px;
+  border-color: #C8C2B3;
+}
+  
+#find
+{background-color:#4C6F99;
+  border: none;
+  color:#C8C2B3;
+  padding: 4px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-style: solid;
+  border-radius: 16px;
+  border-color: #C8C2B3;
+}
   
 .quiz {
     
