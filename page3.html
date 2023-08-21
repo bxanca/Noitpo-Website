@@ -25,6 +25,7 @@
             <a href="arts.html">Arts</a>
               <a href="business.html">Business</a>
               <a href="languages.html">Languages</a>
+              <a href="physical.html"> Wellbeing</a>
               <a href="socialsciences.html">Social Sciences</a>
         <a href="technology.html">Technology</a>
   
@@ -59,10 +60,7 @@
 <h4> Full Name</h4>
 <input id="enterName" type="text"> 
 
- 
-
-<br> 
-<br> 
+<br> <br> 
 
 <div class="buttons"> 
 
@@ -71,13 +69,12 @@
   <button id="remove"> REMOVE </button>
 
 </div>
-<br> <br>  
+
+<br><br>  
+
 </div>
 
-<br> <br> <br> <br> <br> 
-
-  
-    <br> <br> 
+<br> <br> <br> <br> <br> <br> <br> 
     
     <script type="module">
 
@@ -171,28 +168,152 @@
           });
           
         }
-       
+    
         insertBth.addEventListener ('click', InsertData);
         updateBth.addEventListener('click', UpdateData);
         removeBth.addEventListener('click', RemoveData);
         findBth.addEventListener('click', FindData);
    
+      // QUIZ JAVASCRIPT 
 
+        function showAlert() {
+            alert("TESTING");
+        }
+      
       </script>
 
-<div class="quiz"> 
+<div id="quiz"> 
+  <br> 
+  <h1> QUIZ </h1>
+
+  <h3> This quiz will give you a quick idea of what kind of subjects you might want to take next year!</h3>
+
+  <div id="questionOne"> 
+
+  <label> <strong> Question One: What is your favourite subject? </strong> </label>
+  <br> <br>
+
+    <input type="radio" id="technology" name="subject" value="TechnologyOption"> 
+    <label for="technology"> Fabric, Food, Digital. </label>
+
+  <br>
+
+    <input type="radio" id="commerce" name="subject" value="CommerceOption">
+    <label for="commerce"> Business, Economics, Accounting.</label>
+  
+  <br>
+
+    <input type="radio" id="languages" name="subject" value="LanguagesOption">
+    <label for="languages">Maori, Chinese, French.</label>
+
+  <br>
+
+  <input type="radio" id="socialsciences" name="subject" value="SocialScienceOption"> 
+    <label for="socialsciences">History, Geography.</label>
+
+  <br> 
+
+    <input type="radio" id="arts" name="subject" value="ArtsOption">
+    <label for="arts"> Visual Art, Dance, Drama, Music.</label>
 
 
-<br>
+  <br> 
 
-<br> 
+    <input type="radio" id="Wellbeing" name="subject" value="WellbeingOption">
+    <label for="arts"> PE, Health</label>
 
 </div>
 
 <br> 
+
+<div id="questionTwo" > 
+  <label> <strong> Question Two: Out of these options, what sounds more enjoyable? </strong> </label>
+  <br> <br>
+    <input type="radio" id="Painting" name="option" value="optionOne">
+    <label for="Painting">Painting</label>
+
+    <input type="radio" id="workingOut" name="option" value="optionTwo">
+    <label for="workingOut">Working Out</label>
+  
+    <input type="radio" id="socializing" name="option" value="optionThree">
+    <label for="socializing"> Socializing </label>
+
+</div>
+
+<br> 
+<div id="questionThree" >
+<label> <strong> Question Three: What field do you want to explore in the future? </strong> </label>
+<br>
+<br> 
+<input type="radio" id="Pink"  name="future" value="pinkOption" >
+<label for="pinkOption" > Health and Medicine </label>
+<br>
+<input type="radio" id="Engineering" name="future" value="engineeringOption" >
+<label for="engineeringOption" > Engineering </label>
+<br>
+<input type="radio" id="Health" name="future" value="healthOption" >
+<label for="healthOption" > Health Science </label>
+<br>
+<input type="radio" id="Commerce" name="future" value="commerceOption" >
+<label for="commerceOption" > Commerce </label>
+<br>
+<input type="radio" id="Law" name="future" value="lawOption" >
+<label for="lawOption" > Law </label>
+<br>
+<input type="radio" id="Hospitality" name="future" value="hospitalityOption" >
+<label for="hospitalityOption" > Hospitality </label>
+
+<br>
+
+<br>
+
+<div id="questionFour" >
+  <label> <strong> Question Four: Are you a tactical, auditoral, visual learner? </strong> </label>
+<br>
+
+<br> 
+<input type="radio" id="tactical"  name="learner" value="tacticalOption" >
+<label for="tactical" > Tactical (hands on) </label>
+<br>
+<input type="radio" id="auditoral"  name="learner" value="auditoralOption" >
+<label for="auditoral" > Auditoral (enjoys listening)</label>
+<br>
+<input type="radio" id="visual"  name="learner" value="visualOption" >
+<label for="visual" > Visual (imagines the information)</label>
+<br>
+
+<br>
+
+<div id="questionFive">
+  <label> <strong> Question Five: Are you academic or pracitcal </strong> </label>
+<br> <br>
+  <input type="radio" id="academic"  name="style" value="academicOption" >
+  <label for="academic" > Academic </label>
+<br>
+  <input type="radio" id="practical" name="style" value="practicalOption" >
+  <label for="practical" > Practical </label>
+
+<br>
+</div>
+<br> 
+
+</div>
+
+<div id="submitQuiz" >
+
+  <button onclick="submit()"> submit </button>
+
+</div>
+<br> 
+
+<script>
+//this javaScript is for my quiz 
+function submit () {
+  alert("TESTING")
+}
+
+</script>
 <style>
-
-
 
 #insert 
 {background-color:#4C6F99;
@@ -249,11 +370,12 @@
   border-color: #C8C2B3;
 }
   
-.quiz {
+#quiz {
     
     background-color: #C8C2B3;
+    color: #134074;
     width: 40%;
-    height: 1000px;
+    height: 1500px;
     margin-left: 55%;
     margin-right:3px ;
     margin-top: -55%;
