@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="questionOne"> 
+
+    <label> <strong> Question One: What is your favourite subject? </strong> </label>
+    <br> <br>
+  
+      <input type="radio" id="technology" name="subject" value="Technology"> 
+      <label for="technology"> Fabric, Food, Digital. </label>
+  
+    <br>
+  
+      <input type="radio" id="commerce" name="subject" value="Commerce">
+      <label for="commerce"> Business, Economics, Accounting.</label>
+    
+    <br>
+  
+      <input type="radio" id="languages" name="subject" value="Languages">
+      <label for="languages">Maori, Chinese, French.</label>
+  
+    <br>
+  
+    <input type="radio" id="socialsciences" name="subject" value="SocialScience"> 
+      <label for="socialsciences">History, Geography.</label>
+  
+    <br> 
+  
+      <input type="radio" id="arts" name="subject" value="Arts">
+      <label for="arts"> Visual Art, Dance, Drama, Music.</label>
+  
+  
+    <br> 
+  
+      <input type="radio" id="Wellbeing" name="subject" value="Wellbeing">
+      <label for="arts"> PE, Health</label>
+  
+  </div>
+  
+  <br> 
+  
+  <div id="questionTwo" > 
+    <label> <strong> Question Two: Out of these options, what sounds more enjoyable? </strong> </label>
+    <br> <br>
+      <input type="radio" id="Painting" name="option" value="Painting">
+      <label for="Painting">Painting</label>
+  
+      <input type="radio" id="workingOut" name="option" value="working Out">
+      <label for="workingOut">Working Out</label>
+    
+      <input type="radio" id="socializing" name="option" value="socializing">
+      <label for="socializing"> Socializing </label>
+  
+  </div>
+  
+  <br> 
+  <div id="questionThree" >
+  <label> <strong> Question Three: What field do you want to explore in the future? </strong> </label>
+  <br>
+  <br> 
+  <input type="radio" id="Pink"  name="future" value="pink" >
+  <label for="pinkOption" > Health and Medicine </label>
+  <br>
+  <input type="radio" id="Engineering" name="future" value="engineering" >
+  <label for="engineeringOption" > Engineering </label>
+  <br>
+  <input type="radio" id="Health" name="future" value="health" >
+  <label for="healthOption" > Health Science </label>
+  <br>
+  <input type="radio" id="Commerce" name="future" value="commerce" >
+  <label for="commerceOption" > Commerce </label>
+  <br>
+  <input type="radio" id="Law" name="future" value="law" >
+  <label for="lawOption" > Law </label>
+  <br>
+  <input type="radio" id="Hospitality" name="future" value="hospitality" >
+  <label for="hospitalityOption" > Hospitality </label>
+  
+  <br>
+  
+  <br>
+  
+  <div id="questionFour" >
+    <label> <strong> Question Four: Are you a tactical, auditoral, visual learner? </strong> </label>
+  <br>
+  
+  <br> 
+  <input type="radio" id="tactical"  name="learner" value="tactical" >
+  <label for="tactical" > Tactical (hands on) </label>
+  <br>
+  <input type="radio" id="auditoral"  name="learner" value="auditoral" >
+  <label for="auditoral" > Auditoral (enjoys listening)</label>
+  <br>
+  <input type="radio" id="visual"  name="learner" value="visual" >
+  <label for="visual" > Visual (imagines the information)</label>
+  <br>
+  
+  <br>
+  
+  <div id="questionFive">
+    <label> <strong> Question Five: Are you academic or pracitcal </strong> </label>
+  <br> <br>
+    <input type="radio" id="academic"  name="style" value="academic" >
+    <label for="academic" > Academic </label>
+  <br>
+    <input type="radio" id="practical" name="style" value="practical" >
+    <label for="practical" > Practical </label>
+  
+  <br>
+  </div>
+  <br> 
+  </div>
+  <h4 id="display"> </h4>
+  <h4 id="displayFields"> </h4>
+  
+  <div id="submitQuiz" >
+  
+    <button onclick="submit()"> submit </button>
+  
+  </div>
+  <br> 
+  
+  
+  <script>
+  function submit() {
+  var styleElement = document.querySelector('input[name="style"]:checked');
+  var styleValue = styleElement ? styleElement.value : "";
+
+  var subjectElements = document.querySelectorAll('input[name="subject"]:checked');
+  var subjects = [];
+
+  var optionElement = document.querySelector('input[name="option"]:checked');
+  var optionValue = optionElement ? optionElement.value : "";
+
+  var futureElement = document.querySelector('input[name="future"]:checked');
+  var futureValue = futureElement ? futureElement.value : "";
+
+  var learnerElement = document.querySelector('input[name="learner"]:checked');
+  var learnerValue = learnerElement ? learnerElement.value : "";
+
+  if (styleValue === "academic") {
+    subjects = Array.from(subjectElements).map(subject => subject.value);
+    recommendOptionSubject("academic", subjects, optionValue, futureValue, learnerValue);
+    recommendFutureFields("academic", subjects, optionValue, futureValue, learnerValue);
+  } else if (styleValue === "practical") {
+    subjects = Array.from(subjectElements).map(subject => subject.value);
+    recommendOptionSubject("practical", subjects, optionValue, futureValue, learnerValue);
+    recommendFutureFields("practical", subjects, optionValue, futureValue, learnerValue);
+  } else {
+    alert("Please make a selection.");
+  }
+}
+
+function recommendFutureFields(style, subjects, option, future, learner) {
+  var fieldsRecommendation = "";
+
+  if (style === "academic") {
+    fieldsRecommendation = "Based on your choices, you might want to explore fields like: " + healthFields.join(", ");
+  } else if (style === "practical") {
+    fieldsRecommendation = "Based on your choices, you might want to explore fields like: " + engineeringFields.join(", ");
+  }
+
+  if (subjects.length > 0) {
+    fieldsRecommendation += "<br>Selected subjects: " + subjects.join(", ");
+  }
+  if (option) {
+    fieldsRecommendation += "<br>Selected option: " + option;
+  }
+  if (future) {
+    fieldsRecommendation += "<br>Selected future field: " + future;
+  }
+  if (learner) {
+    fieldsRecommendation += "<br>Selected learning style: " + learner;
+  }
+
+  var displayElement = document.getElementById("displayFields");
+  displayElement.innerHTML = fieldsRecommendation;
+}
+
+function recommendOptionSubject(style, subjects, option, future, learner) {
+  var recommendation = "";
+
+  if (style === "academic") {
+    recommendation = "Based on your choices, you might enjoy academic subjects like: " + academicSubjects.join(", ");
+  } else if (style === "practical") {
+    recommendation = "Based on your choices, you might enjoy practical subjects like: " + practicalSubjects.join(", ");
+  }
+
+  if (subjects.length > 0) {
+    recommendation += "<br>Selected subjects: " + subjects.join(", ");
+  }
+  if (option) {
+    recommendation += "<br>Selected option: " + option;
+  }
+  if (future) {
+    recommendation += "<br>Selected future field: " + future;
+  }
+  if (learner) {
+    recommendation += "<br>Selected learning style: " + learner;
+  }
+
+  var displayElement = document.getElementById("display");
+  displayElement.innerHTML = recommendation;
+}
+
+function updateDisplay(recommendations, fieldsRecommendations) {
+      var displayElement = document.getElementById("displayContent");
+      displayElement.innerHTML = recommendations;
+
+      var displayFieldsElement = document.getElementById("displayFieldsContent");
+      displayFieldsElement.innerHTML = fieldsRecommendations;
+
+}
+
+
+
+</script>
+
+
+<h4 id="display">Recommendations for Subjects:</h4>
+<div id="displayContent"></div>
+
+<h4 id="displayFields">Recommendations for Fields:</h4>
+<div id="displayFieldsContent"></div>
+
+</body>
+</html>

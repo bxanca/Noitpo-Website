@@ -42,23 +42,30 @@
 
 
 <br>   <div id="findDetails"> 
- <h1> Login by School ID</h1>
-      <h4> School ID</h4>     
-<input id="findEmail" type="text"> <br> <br>
+ <h1> Your Recent Result!</h1>
+ <p>entering your school ID code <br>  will show your result!</p> 
+      <h4> Enter School ID:</h4> 
+      
+
+<input id="findschoolID" type="text"> <br> <br>
 <button id="find"> FIND </button>
 
-    <h3 id="findName" type="text"> </h3>
-    <h3 id="findYear" type="text"> </h3> <br> <br>
+    <h3 id="findschoolID" type="text"> </h3>
+    <h3 id="findScore" type="text"> </h3> <br> <br>
     </div>
 
     <br> 
     <div id="enterDetails">
-<h1> Enter Info </h1>
-   <h4> School ID </h4>
-<input id="enterEmail" type="text"> 
 
-<h4> Full Name</h4>
-<input id="enterName" type="text"> 
+
+<h1> Enter Info </h1>
+
+<P>please enter what your result was from the quiz, <br> incase you want to come back to it or change it!
+ </P>  <h4> School ID: </h4>
+<input id="enterschoolID" type="text"> 
+
+<h4> Result: </h4>
+<input id="enterScore" type="text"> 
 
 <br> <br> 
 
@@ -102,10 +109,10 @@
 
         const db = getDatabase() ;
        
-        var enterEmail = document.querySelector("#enterEmail");
-        var enterName = document.querySelector("#enterName");
-        var findEmail = document.querySelector("#findEmail");
-        var findName = document.querySelector("#findName");
+        var enterschoolID = document.querySelector("#enterschoolID");
+        var enterScore = document.querySelector("#enterScore");
+        var findschoolID = document.querySelector("#findschoolID");
+        var findScore = document.querySelector("#findScore");
       
       
 
@@ -116,9 +123,9 @@
         
         
         function InsertData() {
-            set(ref(db, "People/" + enterEmail.value),{
-                SchoolID: enterName.value,
-                Name: enterEmail.value,
+            set(ref(db, "People/" + enterschoolID.value),{
+                SchoolID: enterschoolID.value,
+                Score: enterScore.value,
             })
             .then(()=>{
                 alert("Data added successfully");
@@ -132,10 +139,10 @@
 
         function FindData() {
           const dbref = ref(db)
-          get(child(dbref, "People/"+ findEmail.value))
+          get(child(dbref, "People/"+ findschoolID.value))
           .then((snapshot)=>{
             if (snapshot.exists()) {
-                findName.innerHTML = "Name: " + snapshot.val().Name;
+                findScore.innerHTML = "Result: " + snapshot.val().Score;
             } else {
                 alert("No data found")
             }
@@ -147,8 +154,9 @@
         }
 
         function UpdateData() {
-          update(ref(db, "People/" + enterEmail.value),{
-              Name: enterName.value,
+          update(ref(db, "People/" + enterschoolID.value),{
+            Score: enterScore.value,
+           
           })
           .then(()=>{
             alert("Data updated successfully!");
@@ -159,7 +167,7 @@
         }
 
         function RemoveData() {
-          remove(ref(db, "People/"+ enterEmail.value))
+          remove(ref(db, "People/"+ enterschoolID.value))
           .then(()=>{
               alert("Data removed successfully");
           })
@@ -174,11 +182,7 @@
         removeBth.addEventListener('click', RemoveData);
         findBth.addEventListener('click', FindData);
    
-      // QUIZ JAVASCRIPT 
-
-        function showAlert() {
-            alert("TESTING");
-        }
+     
       
       </script>
 
@@ -296,8 +300,9 @@
 <br>
 </div>
 <br> 
-
 </div>
+<h4 id="display"> </h4>
+<h4 id="displayFields"> </h4>
 
 <div id="submitQuiz" >
 
@@ -306,13 +311,84 @@
 </div>
 <br> 
 
+
 <script>
-//this javaScript is for my quiz 
-function submit () {
-  alert("TESTING")
+
+  // These arrays store subject and field names for academic and practical preferences.
+
+ var academicSubjects = ["Commerce (Business, Accounting, Economics)", "Languages (French, Chinese, Maori)"];
+var practicalSubjects = ["Technology", "Hospitality"];
+
+var healthFields = ["Health and Medicine", "Health Science"];
+var engineeringFields = ["Engineering"];
+
+
+
+// This function is called when a user submits a form or clicks a button.
+function submit() {
+  // Check if the 'academic' checkbox is checked.
+  if (academic.checked) {
+    // If checked, call recommendOptionSubject() and recommendFutureFields() functions with the "academic" argument.
+    recommendOptionSubject("academic");
+    recommendFutureFields("academic");
+  } else if (practical.checked) {
+    // If the 'practical' checkbox is checked, call recommendOptionSubject() and recommendFutureFields() functions with the "practical" argument.
+    recommendOptionSubject("practical");
+    recommendFutureFields("practical");
+  } else {
+    // If neither 'academic' nor 'practical' checkboxes are checked, display an alert to prompt the user to make a selection.
+    alert("Please make a selection.");
+  }
+}
+// This function recommends future fields of study based on the 'style'.
+function recommendFutureFields(style) {
+  var fieldsRecommendation = "";
+
+  // Check the 'style' to determine the recommendation based on the user's preference.
+  if (style === "academic") {
+    // If the 'academic' style is selected, recommend academic fields such as health-related fields.
+    fieldsRecommendation = "You might want to explore fields like: " + healthFields.join(", ");
+  } else if (style === "practical") {
+    // If the 'practical' style is selected, recommend practical fields such as engineering-related fields.
+    fieldsRecommendation = "You might want to explore fields like: " + engineeringFields.join(", ");
+  }
+
+  // Get a reference to the HTML element with the 'id' "displayFields."
+  var displayElement = document.getElementById("displayFields");
+  
+  // Update the content of the "displayFields" element with the recommendation.
+  displayElement.innerHTML = fieldsRecommendation;
+}
+
+
+
+// This function provides subject recommendations based on your learning style.
+
+// start with an empty message for the recommendation.
+function recommendOptionSubject(style) {
+  var recommendation = "";
+
+  // If you prefer an "academic" approach, suggests subjects aligned with that style.
+  if (style === "academic") {
+    recommendation = "You might enjoy subjects like: " + academicSubjects.join(", ");
+  } else if (style === "practical") {
+    // If you lean towards a "practical" approach, we recommend these subjects instead.
+    recommendation = "You might find interest in subjects like: " + practicalSubjects.join(", ");
+  } else {
+    // If you forget to choose a style, this alert is put in to give a reminder to put complete the quiz!
+    alert("Please make a selection.");
+  }
+
+  // To display your subject recommendations. i put this variable in to find the HTML element with the ID "display."
+  var displayElement = document.getElementById("display");
+  
+  // Now, we fill in the recommendation for you to see on the screen.
+  displayElement.innerHTML = recommendation;
 }
 
 </script>
+
+
 <style>
 
 #insert 
@@ -375,10 +451,10 @@ function submit () {
     background-color: #C8C2B3;
     color: #134074;
     width: 40%;
-    height: 1500px;
+    height: 1000px;
     margin-left: 55%;
     margin-right:3px ;
-    margin-top: -55%;
+    margin-top: -66%;
 }
   .title {
      font-size: 40px;
@@ -479,14 +555,14 @@ function submit () {
     
     }
    
-  
+  #display {color: #134074;}
 
   #enterDetails {
     border-style: solid;
     border-radius: 34px;
     background-color:#134074;
-    width: 25%;
-    margin-inline-start: 18%;
+    width: 30%;
+    margin-inline-start: 17%;
     outline: 34px;
     
  

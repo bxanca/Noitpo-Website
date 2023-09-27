@@ -38,31 +38,46 @@
 
   <h1> A R T S </h1>
 
+  </div>
+  <div class="pageIntro"> 
+  <h4>  Enjoy an exciting range of Year 11 subjects that appeal to your artistic interests. Dance allows you to explore the realm of expression and movement via portfolio work, choreography, and performance. In Art, you may express your creative vision via continuing art board projects that shows your artistic ability. Dive into the world of music, where you may experiment with group performances and composition, and take an end-of-year test to commemorate your musical journey. Meanwhile, Drama allows for self-expression through three internal assessments, one external assessment, and the exciting Class Play. 
+  </h4>
+  </div>
+  
+
 </div> <br> <br>
 
   <div class="dance"> 
     
     <h2> Dance</h2>
+    <button onclick="toggleMore('dance')" id="danceBtn">Read more</button>
+<span id="danceMore"> <span id="danceDots">...</span> 
+    <p>year 11 dance, it is mainly portfolio work. Two six credit Internals which is choreograph and performance. And an optional exam or another internal depending on what the class chooses. You explore a variety of different dance elements and techniques. Great subject to explore if you want to be put out of your comfort zone
+  
+
 
     <h4> 1.1     AS 90858        Compose Dance Sequences
-      This is a three part choreography assessment in which you will be required to choreograph, either individually or as part of a group, three 45second dance sequences. You will be given a brief for each sequence which will give you direction when choreographing. You will need to draw on your knowledge of dance elements and choreographic devices in order to produce and develop effective movement material.
-       <br> <br> <br> 
+      <br> <br> <br> 
       1.2    AS90002        Perform Dance Sequences
-      This is a three part performance assessment in which you will be required to perform 3 45second dances. Each performance will be as part of either a duet, trio or group dance. You will need to demonstrate the ability to perform dance sequences with clarity and control drawing on a range of performance skills.
       <br> <br> <br> 
       1.4    AS90860    Demonstrate understanding of the elements of dance
-      This internal is a portfolio style assessment. You will be given a range of tasks both practical and written. Tasks will cover a range of dance elements and enable you to demonstrate your understanding through identifying, exploring and using the dance elements in different contexts.
-      <br> <br> <br> 
+          <br> <br> <br> 
       1.5    AS90861    Demonstrate understanding of a dance performance
-      This is an external exam, sat during the exam period at the end of the year. In class you will learn about and develop and understanding of a dance performance selected by your teacher. You will be required to answer questions about the movement, ideas and production technologies in the dance. Questions ask you to sketch, identify and describe different aspects of the studied dance performance. </h4>
-  
+   </p>    
+  </span>
   </div>
   
   <div class="music"> 
   
+ 
+
     <h2> Music </h2>
-  
-    <h4> 1. Group performance how to gel well with a group, cohesion and performence skills like stage presents <br>
+
+    <button onclick="toggleMore('music')" id="musicBtn">Read more</button>
+    <span id="musicMore"> <span id="musicDots">...</span> 
+   Mainly portfolio work with an optional exam at the end of the year.  In this subject you get to explore group performances and composition work. with a total of 14 credits overall. Music is a creative process/art form for students who love creating and sharing. 
+    
+   <h4> 1. Group performance how to gel well with a group, cohesion and performence skills like stage presents <br>
 2. Composition good for song writing as well as understanding what goes into making a song like the production value and different recording softwares <br>
 3. Solo focuses on performance skills as well as intonation and how well you played the instrument <br> 
 4. Exam focuses on classical theory side of music with plenty of Italian words, transposing and intervals i think </h4>
@@ -86,17 +101,46 @@
 4. Exam knowledge about drama convention techniques and technologies</h4>
   </div>
 
+
+  <script>
+   
+  function toggleMore(sectionId) {
+    var dots = document.getElementById(sectionId + "Dots");
+    var moreText = document.getElementById(sectionId + "More");
+    var btnText = document.getElementById(sectionId + "Btn");
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+    }
+}
+
+  </script>
+
+  
+
 <style>
  
  .title { 
     padding: 4px 15px;
-    background-color: #F1EFE9;
+    background-color: #f1efe9e6;
     color: #4C6F99;
-    width: 20%;
+    width: 98%;
     border-radius: 16px;
-    margin-left: 39%;
+    
   }
 
+  .pageIntro {
+    padding: 4px 10px;
+  }
+
+
+  #more {display: none;}
 
  .dance 
   {  padding: 4px 10px;
@@ -245,6 +289,7 @@
         border-color: #2b3a4a;
     }
   
+    
   </style>
   </body>
   </html>
