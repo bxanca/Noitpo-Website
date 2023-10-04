@@ -58,7 +58,7 @@
     <div id="enterDetails">
 
 
-<h1> Enter Info </h1>
+<h1> Enter Details </h1>
 
 <P>please enter what your result was from the quiz, <br> incase you want to come back to it or change it!
  </P>  <h4> School ID: </h4>
@@ -69,12 +69,11 @@
 
 <br> <br> 
 
-<div class="buttons"> 
+  <button > INSERT </button>
+  <button > UPDATE </button>
+  <button > REMOVE </button>
 
-  <button id="insert"> INSERT </button>
-  <button id="update"> UPDATE </button>
-  <button id="remove"> REMOVE </button>
-
+  <br> <br>
 </div>
 
 <br><br>  
@@ -391,59 +390,12 @@ function recommendOptionSubject(style) {
 
 <style>
 
-#insert 
-{background-color:#4C6F99;
-  border: none;
-  color:#C8C2B3;
-  padding: 4px 9px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  border-style: solid;
-  border-radius: 16px;
-  border-color: #C8C2B3;
-}
-#remove 
-{background-color:#4C6F99;
-  border: none;
-  color:#C8C2B3;
-  padding: 4px 9px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  border-style: solid;
-  border-radius: 16px;
-  border-color: #C8C2B3;
-}
-
-#update 
-{background-color:#4C6F99;
-  border: none;
-  color:#C8C2B3;
-  padding: 4px 9px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  border-style: solid;
-  border-radius: 16px;
-  border-color: #C8C2B3;
-}
-  
-#find
-{background-color:#4C6F99;
-  border: none;
-  color:#C8C2B3;
-  padding: 4px 9px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  border-style: solid;
-  border-radius: 16px;
-  border-color: #C8C2B3;
+button {
+  padding: 4px 4px ; 
+    background-color: #2b3a4ab1;
+    color: #ffffff;
+    border-radius: 10%;
+    
 }
   
 #quiz {
@@ -564,8 +516,14 @@ function recommendOptionSubject(style) {
     width: 30%;
     margin-inline-start: 17%;
     outline: 34px;
-    
- 
+  }
+
+  #enterDetails h1 {
+    font-family: Geneva, Verdana, sans-serif;
+  }
+
+  #findDetails h1 {
+    font-family: Geneva, Verdana, sans-serif;
   }
 
   #findDetails {
