@@ -192,6 +192,7 @@
   <div id="quiz">
     <form id="quizForm">
       <br>
+      <br>
       <h1>QUIZ</h1>
       <h3>This quiz will give you a quick idea of what kind of subjects you might want to take next year!</h3>
 
@@ -361,9 +362,9 @@
       }
     }
 
- // Validates that at least one radio button in a group is selected
+ // Validates that at least one radio button in a group is selected (This function is used so i dont have to repeat code)
 function validateRadioSelection(groupName) {
-  // Get all radio buttons in the specified group
+  // Gets all radio buttons in the specified group
   var radios = document.getElementsByName(groupName);
 
   // Iterate through the radio buttons
@@ -400,7 +401,7 @@ function recommendOptionSubject(style) {
 
 // This function gives recommendations for career fields in the future based on the user's learning style.
 function recommendFutureFields(style) {
-  // Initialize a variable to store the recommendation message.
+  // variable stores the recommendation message.
   var fieldsRecommendation = "";
 
   // Get a reference to the HTML element where the recommendation will be displayed.
@@ -414,7 +415,7 @@ function recommendFutureFields(style) {
     fieldsRecommendation = "You might want to explore fields like: " + tourismField.join(", ") + ", " + visualArtsField.join(", ") + ", " + artsField.join(", ");
   }
 
-  // Display the fields recommendation in the HTML.
+  // Display the fields recommendation in the HTML h4.
   displayFieldsElement.innerHTML = fieldsRecommendation;
 }
 </script>
