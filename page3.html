@@ -58,9 +58,9 @@
 
 <br> <br> <br>
 
-  <button > INSERT </button>
-  <button > UPDATE </button>
-  <button > REMOVE </button>
+  <button id="insert"> INSERT </button>
+  <button id="update"> UPDATE </button>
+  <button id ="remove"> REMOVE </button>
 
   <br> <br>
 
@@ -189,208 +189,235 @@
       
       </script>
 
-<div id="quiz"> 
-  <br> 
-  <h1> QUIZ </h1>
+  <div id="quiz">
+    <form id="quizForm">
+      <br>
+      <h1>QUIZ</h1>
+      <h3>This quiz will give you a quick idea of what kind of subjects you might want to take next year!</h3>
 
-  <h3> This quiz will give you a quick idea of what kind of subjects you might want to take next year!</h3>
+      <div id="questionOne">
+        <label><strong>Question One: What is your favourite subject?</strong></label>
+        <br><br>
+        <input type="radio" id="technology" name="subject" value="Technology">
+        <label for="technology">Fabric, Food, Digital.</label>
+        <br>
+        <input type="radio" id="commerce" name="subject" value="Commerce">
+        <label for="commerce">Business, Economics, Accounting.</label>
+        <br>
+        <input type="radio" id="languages" name="subject" value="Languages">
+        <label for="languages">Maori, Chinese, French.</label>
+        <br>
+        <input type="radio" id="socialsciences" name="subject" value="SocialScience">
+        <label for="socialsciences">History, Geography.</label>
+        <br>
+        <input type="radio" id="arts" name="subject" value="Arts">
+        <label for="arts">Visual Art, Dance, Drama, Music.</label>
+        <br>
+        <input type="radio" id="Wellbeing" name="subject" value="PE and Health">
+        <label for="Wellbeing">PE, Health</label>
+      </div>
 
-  <div id="questionOne"> 
+      <br>
 
-  <label> <strong> Question One: What is your favourite subject? </strong> </label>
-  <br> <br>
+      <div id="questionTwo">
+        <label><strong>Question Two: Out of these options, what sounds more enjoyable?</strong></label>
+        <br><br>
+        <input type="radio" id="Painting" name="option" value="Painting">
+        <label for="Painting">Painting</label>
+        <input type="radio" id="workingOut" name="option" value="Working Out">
+        <label for="workingOut">Working Out</label>
+        <input type="radio" id="socializing" name="option" value="Socializing">
+        <label for="socializing">Socializing</label>
+      </div>
 
-    <input type="radio" id="technology" name="subject" value="TechnologyOption"> 
-    <label for="technology"> Fabric, Food, Digital. </label>
+      <br>
 
-  <br>
+      <div id="questionThree">
+        <label><strong>Question Three: What field do you want to explore in the future?</strong></label>
+        <br><br>
 
-    <input type="radio" id="commerce" name="subject" value="CommerceOption">
-    <label for="commerce"> Business, Economics, Accounting.</label>
-  
-  <br>
+        <input type="radio" id="Medicine" name="future" value="Medicine">
+        <label for="Medicine">Health and Medicine</label>
+        <br>
+        <input type="radio" id="Engineering" name="future" value="engineering">
+        <label for="Engineering">Engineering</label>
+        <br>
+        <input type="radio" id="Health" name="future" value="health">
+        <label for="Health">Health Science</label>
+        <br>
+        <input type="radio" id="Commerce" name="future" value="commerce">
+        <label for="Commerce">Commerce</label>
+        <br>
+        <input type="radio" id="Law" name="future" value="law">
+        <label for="Law">Law</label>
+        <br>
+        <input type="radio" id="Hospitality" name="future" value="hospitality">
+        <label for="Hospitality">Hospitality</label>
+      </div>
 
-    <input type="radio" id="languages" name="subject" value="LanguagesOption">
-    <label for="languages">Maori, Chinese, French.</label>
+      <br>
 
-  <br>
+      <div id="questionFour">
+        <label><strong>Question Four: Are you a tactical, auditory, visual learner?</strong></label>
+        <br><br>
+        <input type="radio" id="tactical" name="learner" value="tactical">
+        <label for="tactical">Tactical (hands on)</label>
+        <br>
+        <input type="radio" id="auditoral" name="learner" value="auditoral">
+        <label for="auditoral">Auditory (enjoys listening)</label>
+        <br>
+        <input type="radio" id="visual" name="learner" value="visual">
+        <label for="visual">Visual (imagines the information)</label>
+      </div>
 
-  <input type="radio" id="socialsciences" name="subject" value="SocialScienceOption"> 
-    <label for="socialsciences">History, Geography.</label>
+      <br>
 
-  <br> 
+      <div id="questionFive">
+        <label><strong>Question Five: Are you academic or practical?</strong></label>
+        <br><br>
+        <input type="radio" id="academic" name="style" value="academicOption">
+        <label for="academic">Academic</label>
+        <input type="radio" id="practical" name="style" value="practicalOption">
+        <label for="practical">Practical</label>
+      </div>
 
-    <input type="radio" id="arts" name="subject" value="ArtsOption">
-    <label for="arts"> Visual Art, Dance, Drama, Music.</label>
+      <br>
 
+      <div id="submitButton">
+        <button type="button" onclick="submitForm()">Submit</button>
+      </div>
+    </form>
+ 
 
-  <br> 
-
-    <input type="radio" id="Wellbeing" name="subject" value="WellbeingOption">
-    <label for="arts"> PE, Health</label>
-
+  <h2>Your Answers:</h2>
+  <p id="favoriteSubjects"></p>
+  <h4 id="display"></h4>
+  <h4 id="displayFields"></h4>
 </div>
 
-<br> 
+  <script>
+    // These arrays store subject and field names for academic and practical preferences.
+    var academicSubjects = ["Commerce (Business, Accounting, Economics)", "Languages (French, Chinese, Maori)"];
+    var practicalSubjects = ["Hospitality", "PE", "Health", "Dance", "Drama"];
 
-<div id="questionTwo" > 
-  <label> <strong> Question Two: Out of these options, what sounds more enjoyable? </strong> </label>
-  <br> <br>
-    <input type="radio" id="Painting" name="option" value="optionOne">
-    <label for="Painting">Painting</label>
+    var healthFields = ["Health and Medicine", "Health Science"];
+    var engineeringFields = ["Engineering"];
+    var artsField = ["Dance", "Drama"];
+    var visualArtsField = ["Designer"];
+    var businessField = ["Commerce"];
+    var tourismField = ["Tourism Industry"];
 
-    <input type="radio" id="workingOut" name="option" value="optionTwo">
-    <label for="workingOut">Working Out</label>
-  
-    <input type="radio" id="socializing" name="option" value="optionThree">
-    <label for="socializing"> Socializing </label>
+    // making a variable by getting the ID from the HTML to the submit button.
+    var submitButton = document.getElementById("submitButton");
 
-</div>
+    // An event listener to the submit button.
+    submitButton.addEventListener('click', submitForm);
 
-<br> 
-<div id="questionThree" >
-<label> <strong> Question Three: What field do you want to explore in the future? </strong> </label>
-<br>
-<br> 
-<input type="radio" id="Pink"  name="future" value="pinkOption" >
-<label for="pinkOption" > Health and Medicine </label>
-<br>
-<input type="radio" id="Engineering" name="future" value="engineeringOption" >
-<label for="engineeringOption" > Engineering </label>
-<br>
-<input type="radio" id="Health" name="future" value="healthOption" >
-<label for="healthOption" > Health Science </label>
-<br>
-<input type="radio" id="Commerce" name="future" value="commerceOption" >
-<label for="commerceOption" > Commerce </label>
-<br>
-<input type="radio" id="Law" name="future" value="lawOption" >
-<label for="lawOption" > Law </label>
-<br>
-<input type="radio" id="Hospitality" name="future" value="hospitalityOption" >
-<label for="hospitalityOption" > Hospitality </label>
+    // This function is called when a user submits a form or clicks a button.
+    function submitForm() {
+      var form = document.getElementById("quizForm");
 
-<br>
+      // Create an array to store user's selected subjects.
+      var selectedSubjects = [];
 
-<br>
+      // Check if at least one radio button is selected.
+        // Check if at least one radio button is selected for each group.
+      var isSubjectSelected = validateRadioSelection("subject");
+      var isOptionSelected = validateRadioSelection("option");
+      var isFutureSelected = validateRadioSelection("future");
+      var isLearnerSelected = validateRadioSelection("learner");
+      var isStyleSelected = validateRadioSelection("style");
 
-<div id="questionFour" >
-  <label> <strong> Question Four: Are you a tactical, auditoral, visual learner? </strong> </label>
-<br>
+        if (isSubjectSelected && isOptionSelected && isFutureSelected && isLearnerSelected && isStyleSelected) {
+   // Iterate through all form elements
+        for (var i = 0; i < form.elements.length; i++) {
+          // Get the current form element
+          var element = form.elements[i];
 
-<br> 
-<input type="radio" id="tactical"  name="learner" value="tacticalOption" >
-<label for="tactical" > Tactical (hands on) </label>
-<br>
-<input type="radio" id="auditoral"  name="learner" value="auditoralOption" >
-<label for="auditoral" > Auditoral (enjoys listening)</label>
-<br>
-<input type="radio" id="visual"  name="learner" value="visualOption" >
-<label for="visual" > Visual (imagines the information)</label>
-<br>
+          // Checking the element type "radio" and is checked
+          if (element.type === "radio" && element.checked) {
+            // If the radio button is checked, add its value to the selectedSubjects array
+            selectedSubjects.push(element.value);
+          }
+        }
 
-<br>
+        // Display selected subjects as an array.
+        var favoriteSubjectsElement = document.getElementById("favoriteSubjects");
+        favoriteSubjectsElement.textContent = "Your Options: " + selectedSubjects.join(", ");
 
-<div id="questionFive">
-  <label> <strong> Question Five: Are you academic or pracitcal </strong> </label>
-<br> <br>
-  <input type="radio" id="academic"  name="style" value="academicOption" >
-  <label for="academic" > Academic </label>
-<br>
-  <input type="radio" id="practical" name="style" value="practicalOption" >
-  <label for="practical" > Practical </label>
+        // Determine the user's learning style (academic or practical) and recommend subjects and fields.
+        if (selectedSubjects.includes("academicOption")) {
+          // If "academicOption" is selected, recommend academic subjects and future fields.
+          recommendOptionSubject("academic"); // Recommends academic subjects.
+          recommendFutureFields("academic"); // Recommends academic future fields.
+        } else if (selectedSubjects.includes("practicalOption")) {
+          // If "practicalOption" is selected, recommend practical subjects and future fields.
+          recommendOptionSubject("practical"); // Recommends practical subjects.
+          recommendFutureFields("practical"); // Recommends practical future fields.
+        }
+      } else {
+        // If the user didn't make a selection, display an alert.
+        alert("Please select at least one option.");
+      }
+    }
 
-<br>
-</div>
-<br> 
-</div>
-<h4 id="display"> </h4>
-<h4 id="displayFields"> </h4>
+ // Validates that at least one radio button in a group is selected
+function validateRadioSelection(groupName) {
+  // Get all radio buttons in the specified group
+  var radios = document.getElementsByName(groupName);
 
-<div id="submitQuiz" >
-
-  <button onclick="submit()"> submit </button>
-
-</div>
-<br> 
-
-
-<script>
-
-  // These arrays store subject and field names for academic and practical preferences.
-
- var academicSubjects = ["Commerce (Business, Accounting, Economics)", "Languages (French, Chinese, Maori)"];
-var practicalSubjects = ["Technology", "Hospitality"];
-
-var healthFields = ["Health and Medicine", "Health Science"];
-var engineeringFields = ["Engineering"];
-
-
-
-// This function is called when a user submits a form or clicks a button.
-function submit() {
-  // Check if the 'academic' checkbox is checked.
-  if (academic.checked) {
-    // If checked, call recommendOptionSubject() and recommendFutureFields() functions with the "academic" argument.
-    recommendOptionSubject("academic");
-    recommendFutureFields("academic");
-  } else if (practical.checked) {
-    // If the 'practical' checkbox is checked, call recommendOptionSubject() and recommendFutureFields() functions with the "practical" argument.
-    recommendOptionSubject("practical");
-    recommendFutureFields("practical");
-  } else {
-    // If neither 'academic' nor 'practical' checkboxes are checked, display an alert to prompt the user to make a selection.
-    alert("Please make a selection.");
+  // Iterate through the radio buttons
+  for (var i = 0; i < radios.length; i++) {
+    // If a radio button is checked, return true (at least one is selected)
+    if (radios[i].checked) {
+      return true;
+    }
   }
-}
-// This function recommends future fields of study based on the 'style'.
-function recommendFutureFields(style) {
-  var fieldsRecommendation = "";
 
-  // Check the 'style' to determine the recommendation based on the user's preference.
-  if (style === "academic") {
-    // If the 'academic' style is selected, recommend academic fields such as health-related fields.
-    fieldsRecommendation = "You might want to explore fields like: " + healthFields.join(", ");
-  } else if (style === "practical") {
-    // If the 'practical' style is selected, recommend practical fields such as engineering-related fields.
-    fieldsRecommendation = "You might want to explore fields like: " + engineeringFields.join(", ");
-  }
-
-  // Get a reference to the HTML element with the 'id' "displayFields."
-  var displayElement = document.getElementById("displayFields");
-  
-  // Update the content of the "displayFields" element with the recommendation.
-  displayElement.innerHTML = fieldsRecommendation;
+  // If no radio button in the group is checked, return false (none selected)
+  return false;
 }
 
-
-
-// This function provides subject recommendations based on your learning style.
-
-// start with an empty message for the recommendation.
+// This function provides subject recommendations based on the users learning style.
 function recommendOptionSubject(style) {
   var recommendation = "";
+  var displayElement = document.getElementById("display");
 
-  // If you prefer an "academic" approach, suggests subjects aligned with that style.
   if (style === "academic") {
+    // If the learning style is academic, recommend academic subjects
     recommendation = "You might enjoy subjects like: " + academicSubjects.join(", ");
   } else if (style === "practical") {
-    // If you lean towards a "practical" approach, we recommend these subjects instead.
+    // If the learning style is practical, recommend practical subjects
     recommendation = "You might find interest in subjects like: " + practicalSubjects.join(", ");
   } else {
-    // If you forget to choose a style, this alert is put in to give a reminder to put complete the quiz!
+    // Display an alert if an invalid style is provided
     alert("Please make a selection.");
   }
 
-  // To display your subject recommendations. i put this variable in to find the HTML element with the ID "display."
-  var displayElement = document.getElementById("display");
-  
-  // Now, we fill in the recommendation for you to see on the screen.
+  // Display the user's input in the empty display h4
   displayElement.innerHTML = recommendation;
 }
 
-</script>
+// This function gives recommendations for career fields in the future based on the user's learning style.
+function recommendFutureFields(style) {
+  // Initialize a variable to store the recommendation message.
+  var fieldsRecommendation = "";
 
+  // Get a reference to the HTML element where the recommendation will be displayed.
+  var displayFieldsElement = document.getElementById("displayFields");
+
+  if (style === "academic") {
+    // If the learning style is academic, recommend specific academic fields
+    fieldsRecommendation = "You might want to explore fields like: " + healthFields.join(", ") + ", " + engineeringFields.join(", ") + ", " + businessField.join(", ");
+  } else if (style === "practical") {
+    // If the learning style is practical, recommend specific practical fields
+    fieldsRecommendation = "You might want to explore fields like: " + tourismField.join(", ") + ", " + visualArtsField.join(", ") + ", " + artsField.join(", ");
+  }
+
+  // Display the fields recommendation in the HTML.
+  displayFieldsElement.innerHTML = fieldsRecommendation;
+}
+</script>
 
 <style>
 
@@ -408,7 +435,7 @@ button {
     color: #134074;
     text-shadow: 2px 1px #DFDCD1;
     width: 40%;
-    height: 1000px;
+    height: 1200px;
     margin-left: 55%;
     margin-right:3px ;
     margin-top: -66%;
