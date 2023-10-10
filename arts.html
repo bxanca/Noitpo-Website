@@ -41,7 +41,9 @@
   </div>
   <div class="pageIntro"> 
       <h4> <br> Enjoy an exciting range of Year 11 subjects that appeal to your artistic interests. Dance allows you to explore the realm of expression and movement via portfolio work, choreography, and performance. In Art, you may express your creative vision via continuing art board projects that shows your artistic ability. Dive into the world of music, where you may experiment with group performances and composition, and take an end-of-year test to commemorate your musical journey. Meanwhile, Drama allows for self-expression through three internal assessments, one external assessment, and the exciting Class Play. 
- <br><br> </h4> <br> 
+       <br><br> 
+      </h4>
+       <br> 
   </div>
   
 
@@ -50,95 +52,82 @@
   <div class="dance"> 
     
     <h2> Dance</h2>
-    <button onclick="toggleMore('dance')" id="danceBtn">Read more</button>
-<span id="danceMore"> <span id="danceDots">...</span> 
     <p>year 11 dance, it is mainly portfolio work. Two six credit Internals which is choreograph and performance. And an optional exam or another internal depending on what the class chooses. You explore a variety of different dance elements and techniques. Great subject to explore if you want to be put out of your comfort zone
-  
-
-
-    <h4> 1.1     AS 90858        Compose Dance Sequences
-      <br> 
+    </p> 
+    <h4> 
+      1.1     AS 90858        Compose Dance Sequences
+      <br>  <br> 
       1.2    AS90002        Perform Dance Sequences
-      <br> 
+      <br>  <br> 
       1.4    AS90860    Demonstrate understanding of the elements of dance
-          <br> 
+      <br>  <br> 
       1.5    AS90861    Demonstrate understanding of a dance performance
-   </p>    
-  </span>
+    </h4>
+
   </div>
   
   <div class="music"> 
 
     <h2> Music </h2>
 
-    <button onclick="toggleMore('music')" id="musicBtn">Read more</button>
-    <span id="musicMore"> <span id="musicDots">...</span> 
   <p> Mainly portfolio work with an optional exam at the end of the year.  In this subject you get to explore group performances and composition work. with a total of 14 credits overall. Music is a creative process/art form for students who love creating and sharing. 
-  </p>
-   <h4> 1. Group performance how to gel well with a group, cohesion and performence skills like stage presents <br>
-2. Composition good for song writing as well as understanding what goes into making a song like the production value and different recording softwares <br>
-3. Solo focuses on performance skills as well as intonation and how well you played the instrument <br> 
-4. Exam focuses on classical theory side of music with plenty of Italian words, transposing and intervals i think </h4>
+  </p>  
+   <h4> 
+    1. Group performance how to gel well with a group, cohesion and performence skills like stage presents <br><br>
+    2. Composition good for song writing as well as understanding what goes into making a song like the production value and different recording softwares <br><br>
+    3. Solo focuses on performance skills as well as intonation and how well you played the instrument <br> <br>
+    4. Exam focuses on classical theory side of music with plenty of Italian words, transposing and intervals i think </h4>
   </div>
   
   <div class="art">
    
     <h2> Art </h2>
-  
-    <button onclick="toggleMore('art')" id="artBtn">Read more</button>
-    <span id="artMore"> <span id="artDots">...</span> 
     <p> At the start of the year students start doing prints and sketches for a little warm up before going in depth into real hardcore paintings. They created a board which is worth 6 credits overall. Then later on in the year they created similar boards, which have similar themes to the first one. This board is used during the externals. The last internal is writing and researching about 3 NZ artists and how they impacted the art history of NZ and todays culture. </p>
-  </span></div>
-  
+  <h4>
+    90913	Demonstrate understanding of art works from a Māori and another cultural context using art terminology	4 credits
+    <br> <br>
+    90914	Use drawing methods and skills for recording information using wet and dry media	4 credits
+    <br><br> 
+    90916	Produce a body of work informed by established practice, which develops ideas, using a range of media	12 credits
+  </h4>
+
   </div>
+
+
   <br> 
 
   
   <div class="drama">
   
     <h2> Drama </h2>
-    <button onclick="toggleMore('drama')" id="dramaBtn">Read more</button>
-    <span id="dramaMore"> <span id="dramaDots">...</span> 
-  <h4> 1. divising and interpreting poems into short performaces <br>
-2. Class play covering drama conventions and delving into direction plays <br>
-3. Comedia Del Arte, an Italian melodramatic type of drama with masks and over the top acting <br>
-4. Exam knowledge about drama convention techniques and technologies</h4>
-  </span></div>
+    <p>Students in Year 11 Drama push a variety of theatrical tasks. They delve into the skill of creating and interpreting poetry, converting them into concise and powerful performances. The class play lets students in dramatic conventions and the many layers of play direction.  Students become involved in the enthralling world of Comedia Del Arte, an Italian theatrical genre of play distinguished by masks and exaggerated performance. They will also be tested on their understanding of theatrical convention methods and technology as they develop, finishing out their full drama education.
+    </p>
+ 
+  <h4>
+    90006	Apply drama techniques in a dramatic context	4 credits
+    <br> <br>
+    90999	Use features of a drama/theatre form in a performance	4 credits
+    <br> <br>
+    90009	Perform an acting role in a scripted production	5 credits
+  </h4>
 
-  <script>
-   
-  function toggleMore(sectionId) {
-    var dots = document.getElementById(sectionId + "Dots");
-    var moreText = document.getElementById(sectionId + "More");
-    var btnText = document.getElementById(sectionId + "Btn");
+</div>
 
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
-    }
-}
-
-  </script>
-
-  
 
 <style>
  
  
  
  .pageIntro h4{
-  background-color: #cecbc0;
+  background-color: #DFDCD1;
   margin: 2%;
-  margin-right: 45%;
+  margin-right: 25%;
+  text-shadow: 4px 4px #cecbc0;
  }
 
  .pageIntro {
   padding: 7px 7px;
+  margin-left: 18%;
  }
 
 
@@ -173,6 +162,9 @@
     margin-left: .9%;
     float: left;
     text-shadow: 4px 4px #DFDCD1;
+    outline-style: solid;
+    outline-color:#cecbc0;
+    outline-width: 3mm;
 
   
   }
@@ -186,6 +178,9 @@
     margin-left: 3%;
     float: left;
     text-shadow: 4px 4px #cecbc0;
+    outline-style: solid;
+    outline-color: #F1EFE9;
+    outline-width: 3mm;
   }
   
   .drama
@@ -199,6 +194,9 @@
     float: right;
     margin-top: -1.3%;
     text-shadow: 4px 4px #DFDCD1;
+    outline-style: solid;
+    outline-color:#cecbc0;
+    outline-width: 3mm;
   }
   
   .art
@@ -210,6 +208,9 @@
     margin-left: 5%;
     float: left;
     text-shadow: 4px 4px #cecbc0;
+    outline-style: solid;
+    outline-color: #F1EFE9;
+    outline-width: 3mm;
   }
 
 
