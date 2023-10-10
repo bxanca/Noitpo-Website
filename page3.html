@@ -276,9 +276,9 @@
       <div id="questionFive">
         <label><strong>Question Five: Are you academic or practical?</strong></label>
         <br><br>
-        <input type="radio" id="academic" name="style" value="academicOption">
+        <input type="radio" id="academic" name="style" value="academic">
         <label for="academic">Academic</label>
-        <input type="radio" id="practical" name="style" value="practicalOption">
+        <input type="radio" id="practical" name="style" value="practical">
         <label for="practical">Practical</label>
       </div>
 
@@ -298,8 +298,8 @@
 
   <script>
     // These arrays store subject and field names for academic and practical preferences.
-    var academicSubjects = ["Commerce (Business, Accounting, Economics)", "Languages (French, Chinese, Maori)"];
-    var practicalSubjects = ["Hospitality", "PE", "Health", "Dance", "Drama"];
+    var academicSubjects = ["Business, Accounting, Economics", "French, Chinese, Maori", "History", ];
+    var practicalSubjects = [ "PE", "Health", "Dance", "Drama"];
 
     var healthFields = ["Health and Medicine", "Health Science"];
     var engineeringFields = ["Engineering"];
@@ -307,6 +307,7 @@
     var visualArtsField = ["Designer"];
     var businessField = ["Commerce"];
     var tourismField = ["Tourism Industry"];
+    var lawField = ["Law"];
 
     // making a variable by getting the ID from the HTML to the submit button.
     var submitButton = document.getElementById("submitButton");
@@ -322,7 +323,7 @@
       var selectedSubjects = [];
 
       // Check if at least one radio button is selected.
-        // Check if at least one radio button is selected for each group.
+        // Check if at least one radio button is selected for each group. this ensures the program prevents any errors from happening.
       var isSubjectSelected = validateRadioSelection("subject");
       var isOptionSelected = validateRadioSelection("option");
       var isFutureSelected = validateRadioSelection("future");
@@ -347,11 +348,11 @@
         favoriteSubjectsElement.textContent = "Your Options: " + selectedSubjects.join(", ");
 
         // Determine the user's learning style (academic or practical) and recommend subjects and fields.
-        if (selectedSubjects.includes("academicOption")) {
+        if (selectedSubjects.includes("academic")) {
           // If "academicOption" is selected, recommend academic subjects and future fields.
           recommendOptionSubject("academic"); // Recommends academic subjects.
           recommendFutureFields("academic"); // Recommends academic future fields.
-        } else if (selectedSubjects.includes("practicalOption")) {
+        } else if (selectedSubjects.includes("practical")) {
           // If "practicalOption" is selected, recommend practical subjects and future fields.
           recommendOptionSubject("practical"); // Recommends practical subjects.
           recommendFutureFields("practical"); // Recommends practical future fields.
@@ -409,7 +410,7 @@ function recommendFutureFields(style) {
 
   if (style === "academic") {
     // If the learning style is academic, recommend specific academic fields
-    fieldsRecommendation = "You might want to explore fields like: " + healthFields.join(", ") + ", " + engineeringFields.join(", ") + ", " + businessField.join(", ");
+    fieldsRecommendation = "You might want to explore fields like: " + healthFields.join(", ") + ", " + engineeringFields.join(", ") + ", " + businessField.join(", ") + ", " + lawField.join(" ");
   } else if (style === "practical") {
     // If the learning style is practical, recommend specific practical fields
     fieldsRecommendation = "You might want to explore fields like: " + tourismField.join(", ") + ", " + visualArtsField.join(", ") + ", " + artsField.join(", ");
