@@ -328,15 +328,15 @@ function submitForm() {
     }
 }
 
-//This function
+//This function determines the creative and tacatical input depending on the user, for each question. 
 function calculateScore(answers, pathway) {
   let score = 0;
   if (pathway === "creative") {
-    if (answers.q1 === "Arts" || answers.q2 === "Painting" || answers.q4 === "visual") {
+    if (answers.q1 === "Arts" || answers.q2 === "Painting" || answers.q4 === "visual" || answers.q1 === "Arts") {
       score++;
     }
   } else if (pathway === "tactical") {
-    if (answers.q4 === "tactical" || answers.q5 === "practical" || answers.q2 === "Working Out") {
+    if (answers.q4 === "tactical" || answers.q5 === "practical" || answers.q2 === "Working Out" || answers.q3 ==="hospitality"|| answers.q1 === "PE and Health") {
       score++;
     }
   }
